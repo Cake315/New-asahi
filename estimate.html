@@ -97,7 +97,7 @@
   </header>
 
   <!-- ページ見出しバナー -->
-  <div class="page-header-banner">
+  <div class="page-header-banner" style="background-image: url('image/home/mitsumori.jpg');">
     <div class="container">
       <p class="page-header-sub">SIMULATION</p>
       <h1 class="page-header-title">概算お見積り計算</h1>
@@ -136,7 +136,7 @@
           </optgroup>
           <optgroup label="【国産桧（四国・九州産等）】">
             <option value="6930">国産桧 一枚もの通常品フローリング - 税込 ¥6,930 / ㎡</option>
-            <option value="11880">国産桧 一枚もの上小節フローリング - 税込 ¥11880 / ㎡</option>
+            <option value="11880">国産桧 一枚もの上小節フローリング - 税込 ¥11,880 / ㎡</option>
             <option value="14190">国産桧 一枚もの無節フローリング - 税込 ¥14,190 / ㎡</option>
           </optgroup>
           <optgroup label="【壁紙（クロス）資材】">
@@ -163,12 +163,13 @@
         <p style="font-size: 0.8rem; color: #888; margin-top: 6px;">※（資材単価 ＋ 工賃単価）× 施工面積</p>
       </div>
 
-      <!-- 注意事項 -->
+      <!-- 注意事項（文面追加・修正版） -->
       <div class="caution-box">
         <strong>【お見積りシミュレーションに関するご留意事項】</strong>
         <ul style="padding-left: 20px;">
           <li>上記シミュレーションの計算結果はあくまで標準的な概算金額であり、実際の施工内容や仕様により金額は変動いたします。</li>
-          <li>産廃処分費・諸経費（現場状況により10%〜20%）が別途発生いたします。</li>
+          <li>産廃処分費および諸経費(10％〜20％)は別途発生いたします。</li>
+          <li>作業状況や予測不可能な事態により、作業内容、作業日程、項目、数量、金額などが変更になる場合がございます(変更になる場合は事前確認なしでは行いません)。</li>
           <li>正確な工期・お見積りにつきましては、現地調査（無料）にて詳細を拝見した上でご案内させていただきます。</li>
         </ul>
       </div>
@@ -185,9 +186,39 @@
     </div>
   </main>
 
-  <!-- フッター -->
+  <!-- フッター（完全版） -->
   <footer>
     <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h4>朝陽 - ASAHI -</h4>
+          <address class="footer-address">
+            〒104-0061 東京都中央区銀座一丁目22番11号 銀座大竹ビジデンス2階<br>
+            TEL: 050-1784-2312 / 直通: 090-5806-5361<br>
+            MAIL: asahi.20241122@gmail.com
+          </address>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <h5>施工案内</h5>
+            <ul>
+              <li><a href="flooring/materials.html">フローリング建材</a></li>
+              <li><a href="flooring/service.html">フローリング工賃</a></li>
+              <li><a href="wallpaper/materials.html">壁紙建材</a></li>
+              <li><a href="wallpaper/service.html">壁紙工賃</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h5>企業情報</h5>
+            <ul>
+              <li><a href="about.html">会社概要・理念</a></li>
+              <li><a href="estimate.html">概算見積り</a></li>
+              <li><a href="recruit.html">採用情報</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <p class="copyright">&copy; 朝陽 ASAHI All Rights Reserved.</p>
     </div>
   </footer>
@@ -226,7 +257,6 @@
 
       const text = `【シミュレーション内容】\n・施工面積: ${sizeStr}\n・選択資材: ${materialName}\n・施工プラン: ${laborName}\n・概算費用: ${totalStr} (税込)\n\n【その他ご要望】\n${remarks}`;
 
-      // セッションストレージ経由でお問い合わせページに渡す
       sessionStorage.setItem('estimate_data', text);
       window.location.href = 'contact.html';
     }

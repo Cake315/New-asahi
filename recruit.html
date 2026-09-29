@@ -15,7 +15,7 @@
       <a href="index.html">
         <img src="image/home/logo.png" alt="朝陽 ASAHI" class="brand-logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'48\'><text x=\'10\' y=\'32\' font-size=\'24\' font-family=\'serif\' fill=\'%23181514\'>朝陽</text></svg>'">
       </a>
-      <button class="menu-toggle" id="menuToggle">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニュー開閉">☰</button>
       <nav class="global-nav" id="globalNav">
         <ul class="nav-list">
           <li class="nav-item"><a href="about.html" class="nav-link">会社概要</a></li>
@@ -41,7 +41,7 @@
     </div>
   </header>
 
-  <div class="page-header-banner">
+  <div class="page-header-banner" style="background-image: url('image/home/saiyou.jpg');">
     <div class="container">
       <p class="page-header-sub">RECRUIT</p>
       <h1 class="page-header-title">採用情報</h1>
@@ -115,9 +115,39 @@
     </div>
   </main>
 
-  <!-- フッター -->
+  <!-- フッター（完全版） -->
   <footer>
     <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h4>朝陽 - ASAHI -</h4>
+          <address class="footer-address">
+            〒104-0061 東京都中央区銀座一丁目22番11号 銀座大竹ビジデンス2階<br>
+            TEL: 050-1784-2312 / 直通: 090-5806-5361<br>
+            MAIL: asahi.20241122@gmail.com
+          </address>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <h5>施工案内</h5>
+            <ul>
+              <li><a href="flooring/materials.html">フローリング建材</a></li>
+              <li><a href="flooring/service.html">フローリング工賃</a></li>
+              <li><a href="wallpaper/materials.html">壁紙建材</a></li>
+              <li><a href="wallpaper/service.html">壁紙工賃</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h5>企業情報</h5>
+            <ul>
+              <li><a href="about.html">会社概要・理念</a></li>
+              <li><a href="estimate.html">概算見積り</a></li>
+              <li><a href="recruit.html">採用情報</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <p class="copyright">&copy; 朝陽 ASAHI All Rights Reserved.</p>
     </div>
   </footer>

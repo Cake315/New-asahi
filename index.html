@@ -550,9 +550,10 @@
   <!-- ================= ヘッダー ================= -->
   <header>
     <div class="container header-inner">
+      <!-- ブランドロゴ -->
       <a href="index.html" class="brand-logo-wrap">
-        <!-- ロゴ画像差し替えエリア -->
-        <img src="image/home/logo.png" alt="朝陽 ASAHI" class="brand-logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'48\'><text x=\'10\' y=\'32\' font-size=\'24\' font-family=\'serif\' fill=\'%23181514\'>朝陽</text></svg>'">
+        <img src="image/home/logo.png" alt="朝陽 ASAHI" class="brand-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span class="brand-logo-fallback" style="display: none; font-family: 'Shippori Mincho', serif; font-size: 1.8rem; font-weight: 800; color: var(--deep-sumi); letter-spacing: 0.1em;">朝陽</span>
       </a>
 
       <!-- モバイルメニュー開閉ボタン -->
@@ -660,7 +661,7 @@
       <div class="services-grid">
         <!-- フローリング -->
         <article class="service-card">
-          <img src="image/home/sizai.jpg" alt="フローリング施工" class="service-card-img">
+          <img src="image/home/flooring.jpg" alt="フローリング施工" class="service-card-img">
           <div class="service-card-body">
             <div>
               <h3 class="service-card-title">フローリング施工</h3>
@@ -678,7 +679,7 @@
 
         <!-- 壁紙リフォーム -->
         <article class="service-card">
-          <img src="image/home/kochin.jpg" alt="壁紙・クロス施工" class="service-card-img">
+          <img src="image/home/wallpaper.jpg" alt="壁紙・クロス施工" class="service-card-img">
           <div class="service-card-body">
             <div>
               <h3 class="service-card-title">壁紙リフォーム</h3>
@@ -697,37 +698,42 @@
     </div>
   </section>
 
-  <!-- ================= 4. 概算見積り・採用情報バナー ================= -->
+<!-- ================= 4. 概算見積り・採用情報バナー ================= -->
   <section class="sec-sub-banner">
     <div class="container">
       <div class="banner-grid">
-        <!-- 見積もりバナー -->
-        <div class="feature-banner-box">
-          <div>
+        <!-- 施工見積りカード -->
+        <article class="feature-banner-box" style="padding: 0 !important; overflow: hidden; background: #fff; border: 1px solid var(--border-wood); border-radius: 6px; display: flex; flex-direction: column;">
+          <div class="banner-img-wrap" style="width: 100%; height: 180px !important; overflow: hidden; background-color: #faf6f0;">
+            <img src="image/home/mitsumori.jpg" alt="施工見積りシミュレーション" class="banner-photo" style="width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; display: block;">
+          </div>
+          <div class="banner-content" style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
             <p class="sec-title-en">SIMULATION</p>
             <h3 class="banner-title">施工見積りシミュレーション</h3>
             <p class="banner-desc">
               お部屋の広さ（㎡）とご希望の資材・施工プランを選択するだけで、概算の工事費用を即座に自動計算いたします。
             </p>
+            <a href="estimate.html" class="banner-action-btn">概算見積りを試す →</a>
           </div>
-          <a href="estimate.html" class="banner-action-btn">概算見積りを試す →</a>
-        </div>
+        </article>
 
-        <!-- 採用情報バナー -->
-        <div class="feature-banner-box recruit">
-          <div>
+        <!-- 採用情報カード -->
+        <article class="feature-banner-box recruit" style="padding: 0 !important; overflow: hidden; background: #fff; border: 1px solid var(--border-wood); border-radius: 6px; display: flex; flex-direction: column;">
+          <div class="banner-img-wrap" style="width: 100%; height: 180px !important; overflow: hidden; background-color: #faf6f0;">
+            <img src="image/home/saiyou.jpg" alt="採用情報" class="banner-photo" style="width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; display: block;">
+          </div>
+          <div class="banner-content" style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
             <p class="sec-title-en" style="color: var(--primary-red);">RECRUIT</p>
             <h3 class="banner-title">採用情報（現場スタッフ募集）</h3>
             <p class="banner-desc">
               「丁寧な仕事」を共に追求する施工スタッフを募集しています。未経験者歓迎・研修制度あり。確かな技術が身につく職場です。
             </p>
+            <a href="recruit.html" class="banner-action-btn">募集要項を見る →</a>
           </div>
-          <a href="recruit.html" class="banner-action-btn">募集要項を見る →</a>
-        </div>
+        </article>
       </div>
     </div>
   </section>
-
   <!-- ================= フッター ================= -->
   <footer>
     <div class="container">
