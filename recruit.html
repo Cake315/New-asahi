@@ -6,6 +6,42 @@
   <title>採用情報 | 朝陽 - ASAHI</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* 採用タブ切り替え用スタイル */
+    .recruit-tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .recruit-tab-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .recruit-table th {
+      width: 25%;
+      padding: 18px 20px;
+      text-align: left;
+      background: #faf8f4;
+      color: var(--deep-sumi);
+      font-weight: 700;
+    }
+    .recruit-table td {
+      padding: 18px 20px;
+      line-height: 1.8;
+    }
+    @media (max-width: 768px) {
+      .recruit-table th, .recruit-table td {
+        display: block;
+        width: 100%;
+      }
+      .recruit-table th {
+        border-bottom: none;
+        padding-bottom: 6px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -41,6 +77,7 @@
     </div>
   </header>
 
+  <!-- ページ見出しバナー -->
   <div class="page-header-banner" style="background-image: url('image/home/saiyou.jpg');">
     <div class="container">
       <p class="page-header-sub">RECRUIT</p>
@@ -48,74 +85,138 @@
     </div>
   </div>
 
-  <main class="container" style="padding-top: 50px;">
-    <div style="background: #faf6f0; border-left: 4px solid var(--primary-red); padding: 24px; border-radius: 4px; margin-bottom: 36px;">
-      <h2 style="font-size: 1.35rem; color: var(--deep-sumi); margin-bottom: 10px;">未経験者大歓迎！ 丁寧な研修期間あり</h2>
-      <p style="font-size: 0.95rem; color: var(--charcoal); line-height: 1.8;">
-        道具の使い方から現場の安全管理まで、熟練の職人が一から丁寧に指導いたします。<br>
-        やる気と人柄を重視した採用を行っておりますので、建築・リフォーム業界が初めての方も安心してご応募ください。
-      </p>
+  <!-- 職種切り替えタブボタン -->
+  <div class="category-tab-container">
+    <div class="container">
+      <div class="category-tabs">
+        <button type="button" class="tab-btn active" onclick="switchRecruitTab('site', this)">現場施工スタッフ</button>
+        <button type="button" class="tab-btn" onclick="switchRecruitTab('office', this)">営業・事務スタッフ</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top: 20px;">
+    
+    <!-- ================= 1. 現場施工スタッフ ================= -->
+    <div id="tab-site" class="recruit-tab-pane active">
+      <div style="background: #faf6f0; border-left: 4px solid var(--primary-red); padding: 24px; border-radius: 4px; margin-bottom: 36px;">
+        <h2 style="font-size: 1.35rem; color: var(--deep-sumi); margin-bottom: 10px;">未経験者大歓迎！ 丁寧な研修期間あり</h2>
+        <p style="font-size: 0.95rem; color: var(--charcoal); line-height: 1.8;">
+          道具の使い方から現場の安全管理まで、熟練の職人が一から丁寧に指導いたします。<br>
+          やる気と人柄を重視した採用を行っておりますので、建築・リフォーム業界が初めての方も安心してご応募ください。
+        </p>
+      </div>
+
+      <table class="recruit-table" style="width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border-wood); border-radius: 6px; overflow: hidden; font-size: 0.95rem; margin-bottom: 40px;">
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>募集職種</th>
+            <td>現場施工スタッフ（アルバイト ／ 業務委託）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>仕事内容</th>
+            <td>内外装、外構、エクステリア工事全般</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>給与</th>
+            <td>
+              <strong style="color: var(--primary-red); font-size: 1.3rem;">日給 12,000円〜</strong><br>
+              <span style="display: inline-block; margin-top: 4px; color: var(--text-sub);">※未経験者：<strong>日給 10,000円〜</strong>（研修期間あり）</span>
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>勤務地</th>
+            <td>関東圏内の各施工現場（※出張あり）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>勤務時間</th>
+            <td>9:00〜18:00（実働8時間・休憩あり／※残業あり）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>休日・休暇</th>
+            <td>申告制（希望の働き方に合わせて柔軟に調整可能です）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>待遇・福利厚生</th>
+            <td>交通費全額支給、昇給あり</td>
+          </tr>
+          <tr>
+            <th>応募必要書類</th>
+            <td>身分証明書、履歴書</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- 募集要項テーブル -->
-    <table style="width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border-wood); border-radius: 6px; overflow: hidden; font-size: 0.95rem; margin-bottom: 40px;">
-      <tbody>
-        <tr style="border-bottom: 1px solid var(--border-wood);">
-          <th style="width: 25%; padding: 18px 20px; text-align: left; background: #faf8f4; color: var(--deep-sumi); font-weight: 700;">募集職種</th>
-          <td style="padding: 18px 20px;">現場施工スタッフ（アルバイト ／ 業務委託）</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border-wood);">
-          <th style="padding: 18px 20px; text-align: left; background: #faf8f4; color: var(--deep-sumi); font-weight: 700;">仕事内容</th>
-          <td style="padding: 18px 20px;">内外装、外構、エクステリア工事全般</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border-wood);">
-          <th style="padding: 18px 20px; text-align: left; background: #faf8f4; color: var(--deep-sumi); font-weight: 700;">給与</th>
-          <td style="padding: 18px 20px;">
-            <strong style="color: var(--primary-red); font-size: 1.3rem;">日給 12,000円〜</strong><br>
-            <span style="display: inline-block; margin-top: 4px; color: var(--text-sub);">※未経験者：<strong>日給 10,000円〜</strong>（研修期間あり）</span>
-          </td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border-wood);">
-          <th style="padding: 18px 20px; text-align: left; background: #faf8f4; color: var(--deep-sumi); font-weight: 700;">勤務地</th>
-          <td style="padding: 18px 20px;">関東圏内の各施工現場（※出張あり）</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border-wood);">
-          <th style="padding: 18px 20px; text-align: left; background: #faf8f4; color: var(--deep-sumi); font-weight: 700;">勤務時間</th>
-          <td style="padding: 18px 20px;">9:00〜18:00（実働8時間・休憩あり／※残業あり）</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border-wood);">
-          <th style="padding: 18px 20px; text-align: left; background: #faf8f4; color: var(--deep-sumi); font-weight: 700;">休日・休暇</th>
-          <td style="padding: 18px 20px;">申告制（希望の働き方に合わせて柔軟に調整可能です）</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border-wood);">
-          <th style="padding: 18px 20px; text-align: left; background: #faf8f4; color: var(--deep-sumi); font-weight: 700;">待遇・福利厚生</th>
-          <td style="padding: 18px 20px;">交通費全額支給、昇給あり</td>
-        </tr>
-        <tr>
-          <th style="padding: 18px 20px; text-align: left; background: #faf8f4; color: var(--deep-sumi); font-weight: 700;">応募必要書類</th>
-          <td style="padding: 18px 20px;">身分証明書</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- ================= 2. 営業・事務スタッフ ================= -->
+    <div id="tab-office" class="recruit-tab-pane">
+      <div style="background: #faf6f0; border-left: 4px solid var(--gold); padding: 24px; border-radius: 4px; margin-bottom: 36px;">
+        <h2 style="font-size: 1.35rem; color: var(--deep-sumi); margin-bottom: 10px;">成果をしっかり還元！ 働きやすい環境です</h2>
+        <p style="font-size: 0.95rem; color: var(--charcoal); line-height: 1.8;">
+          お客様へのご提案や各種書類作成など、会社の成長を支える営業・バックオフィス業務です。<br>
+          時給に加え、成果に応じた歩合給もご用意。ご自身のスキルや頑張りがしっかりと評価される体制を整えています。
+        </p>
+      </div>
+
+      <table class="recruit-table" style="width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border-wood); border-radius: 6px; overflow: hidden; font-size: 0.95rem; margin-bottom: 40px;">
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>募集職種</th>
+            <td>営業・事務スタッフ（アルバイト ／ 業務委託）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>仕事内容</th>
+            <td>営業業務、書類作成</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>給与</th>
+            <td>
+              <strong style="color: var(--primary-red); font-size: 1.3rem;">時給 1,200円〜</strong>（歩合あり）
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>勤務地</th>
+            <td>関東圏内の各施工現場（※出張あり）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>勤務時間</th>
+            <td>9:00〜18:00（実働8時間・休憩あり／※残業あり）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>休日・休暇</th>
+            <td>申告制（希望の働き方に合わせて柔軟に調整可能です）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-wood);">
+            <th>待遇・福利厚生</th>
+            <td>交通費全額支給、昇給あり</td>
+          </tr>
+          <tr>
+            <th>応募必要書類</th>
+            <td>身分証明書、履歴書</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!-- 応募誘導 -->
     <div style="text-align: center; background: #fff; border: 1px solid var(--border-wood); border-radius: 6px; padding: 36px; margin-bottom: 60px;">
       <h3 style="font-size: 1.3rem; color: var(--deep-sumi); margin-bottom: 10px;">ご応募・面接のお問い合わせ</h3>
       <p style="font-size: 0.95rem; color: var(--text-sub); margin-bottom: 24px;">
-        LINEまたはお問い合わせフォームより「求人応募の件で」とお気軽にご連絡ください。
+        LINEまたはお問い合わせフォームより「求人応募の件で」とお気軽にご連絡ください。<br>
+        ご希望の職種（現場施工または営業・事務）をお伝えいただくとスムーズです。
       </p>
       <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <a href="https://lin.ee/8wQlimo" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 14px 30px; border-radius: 30px; font-weight: bold; font-size: 1rem;">
+        <a href="https://lin.ee/8wQlimo" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 14px 30px; border-radius: 30px; font-weight: bold; font-size: 1rem; text-decoration: none;">
           LINEで応募・質問する
         </a>
-        <a href="contact.html" style="background: var(--primary-red); color: #fff; padding: 14px 30px; border-radius: 30px; font-weight: bold; font-size: 1rem;">
+        <a href="contact.html" style="background: var(--primary-red); color: #fff; padding: 14px 30px; border-radius: 30px; font-weight: bold; font-size: 1rem; text-decoration: none;">
           フォームから応募する
         </a>
       </div>
     </div>
   </main>
 
-  <!-- フッター（完全版） -->
+  <!-- フッター -->
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -153,5 +254,24 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // 職種タブ切り替えスクリプト
+    function switchRecruitTab(type, btnElement) {
+      // タブボタンのアクティブ切り替え
+      document.querySelectorAll('.category-tabs .tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      btnElement.classList.add('active');
+
+      // 表示コンテンツの切り替え
+      document.querySelectorAll('.recruit-tab-pane').forEach(pane => {
+        pane.classList.remove('active');
+      });
+      const targetPane = document.getElementById('tab-' + type);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>

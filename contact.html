@@ -7,39 +7,113 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* 外枠カード */
     .contact-card {
       background: #fff;
       border: 1px solid var(--border-wood);
       border-radius: 6px;
-      padding: 40px;
-      max-width: 800px;
+      padding: 44px;
+      max-width: 980px;
       margin: 0 auto 60px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     }
+
+    /* 各入力行 */
     .form-group {
       margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
     }
+
+    /* PC版レイアウト */
+    @media (min-width: 769px) {
+      .form-group {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .form-label {
+        width: 220px !important;
+        min-width: 220px !important;
+        padding-top: 14px;
+        margin-bottom: 0 !important;
+      }
+      .form-control-wrap {
+        flex: 1 1 0% !important; /* ★右端まで目一杯引き伸ばす */
+        width: 100% !important;
+      }
+    }
+
     .form-label {
       display: block;
       font-weight: 700;
       font-size: 0.95rem;
-      margin-bottom: 8px;
       color: var(--deep-sumi);
     }
+
+    /* 入力フォーム本体（親要素の幅100%で完全に右端まで伸ばす） */
     .form-control {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid var(--border-wood);
-      border-radius: 4px;
-      font-size: 0.95rem;
-      background: #fff;
-      font-family: inherit;
-      color: var(--deep-sumi);
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 14px 16px !important;
+      border: 1px solid var(--border-wood) !important;
+      border-radius: 4px !important;
+      font-size: 0.95rem !important;
+      background: #fff !important;
+      font-family: inherit !important;
+      color: var(--deep-sumi) !important;
       outline: none;
+      transition: border-color 0.2s;
     }
+
     .form-control:focus {
-      border-color: var(--primary-red);
-      box-shadow: 0 0 0 2px rgba(166, 28, 36, 0.1);
+      border-color: var(--primary-red) !important;
+      box-shadow: 0 0 0 2px rgba(166, 28, 36, 0.1) !important;
+    }
+
+    /* 送信ボタン行 */
+    .submit-row {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    @media (min-width: 769px) {
+      .submit-row {
+        flex-direction: row;
+        gap: 24px;
+      }
+      .submit-spacer {
+        width: 220px;
+        min-width: 220px;
+      }
+      .submit-btn-wrap {
+        flex: 1 1 0%;
+        width: 100%;
+      }
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100% !important; /* ★入力枠の幅と完全に一致させて右端まで伸ばす */
+      background: var(--primary-red);
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 16px;
+      font-size: 1.05rem;
+      transition: opacity 0.2s;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
@@ -77,7 +151,7 @@
     </div>
   </header>
 
- <!-- ページ見出しバナー -->
+  <!-- ページ見出しバナー -->
   <div class="page-header-banner" style="background-image: url('image/home/otoiawase.jpg');">
     <div class="container">
       <p class="page-header-sub">CONTACT</p>
@@ -89,7 +163,7 @@
     <div class="contact-card">
       
       <!-- LINE案内ボックス -->
-      <div style="background: #fdfcf9; border: 1px solid #dfd2c0; border-radius: 6px; padding: 24px; margin-bottom: 36px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+      <div style="background: #fdfcf9; border: 1px solid #dfd2c0; border-radius: 6px; padding: 24px; margin-bottom: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
         <div style="flex: 1; min-width: 240px;">
           <h3 style="font-size: 1.2rem; color: var(--deep-sumi); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
             <span style="color: #06c755; font-size: 1.4rem;">●</span> LINEでのご相談も受付中
@@ -105,46 +179,60 @@
           </div>
         </div>
 
+        <!-- QRコード表示エリア -->
         <div style="background: #fff; border: 1px solid var(--border-wood); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; align-items: center;">
-          <img src="image/home/qr.png" alt="朝陽 LINE公式 QRコード" style="width: 110px; height: 110px; object-fit: contain;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'110\' height=\'110\'><rect width=\'110\' height=\'110\' fill=\'%23faf8f4\'/><text x=\'20\' y=\'60\' font-size=\'14\' fill=\'%23888\'>QR Code</text></svg>'">
+          <img src="image/home/LINE.jpg" alt="朝陽 LINE公式 QRコード" style="width: 120px; height: 120px; object-fit: contain; display: block;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'120\'><rect width=\'120\' height=\'120\' fill=\'%23faf8f4\'/><text x=\'28\' y=\'65\' font-size=\'14\' fill=\'%23888\'>QR Code</text></svg>'">
           <span style="font-size: 0.75rem; color: #888; margin-top: 6px;">ID: @200uvkcd</span>
         </div>
       </div>
 
       <!-- お問い合わせフォーム -->
       <form action="https://formsubmit.co/asahi.20241122@gmail.com" method="POST">
-        <!-- FormSubmit 設定 -->
         <input type="hidden" name="_subject" value="【朝陽】ウェブサイトからのお問い合わせ">
         <input type="hidden" name="_captcha" value="false">
 
         <div class="form-group">
           <label class="form-label">お名前 <span style="color: var(--primary-red);">*</span></label>
-          <input type="text" name="お名前" class="form-control" required placeholder="例：山田 太郎">
+          <div class="form-control-wrap">
+            <input type="text" name="お名前" class="form-control" required placeholder="例：山田 太郎">
+          </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">ご連絡先 (お電話番号またはメールアドレス) <span style="color: var(--primary-red);">*</span></label>
-          <input type="text" name="ご連絡先" class="form-control" required placeholder="例：090-1234-5678 / sample@mail.com">
+          <label class="form-label">ご連絡先 (お電話またはメール) <span style="color: var(--primary-red);">*</span></label>
+          <div class="form-control-wrap">
+            <input type="text" name="ご連絡先" class="form-control" required placeholder="例：090-1234-5678 / sample@mail.com">
+          </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">ご相談種別</label>
-          <select name="ご相談種別" class="form-control">
-            <option value="現地調査・お見積りの申し込み">現地調査・お見積りの申し込み（無料）</option>
-            <option value="工事・リフォームについてのご相談">工事・リフォームについてのご相談</option>
-            <option value="採用・求人への応募">採用・求人への応募</option>
-            <option value="その他">その他</option>
-          </select>
+          <div class="form-control-wrap">
+            <select name="ご相談種別" class="form-control">
+              <option value="現地調査・お見積りの申し込み">現地調査・お見積りの申し込み（無料）</option>
+              <option value="工事・リフォームについてのご相談">工事・リフォームについてのご相談</option>
+              <option value="採用・求人への応募">採用・求人への応募</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">ご相談内容</label>
-          <textarea id="contact-remarks" name="ご相談内容" class="form-control" rows="8" placeholder="ご希望の施工箇所、ご予算、現地調査の希望日程などをご自由にご記入ください。"></textarea>
+          <div class="form-control-wrap">
+            <textarea id="contact-remarks" name="ご相談内容" class="form-control" rows="8" placeholder="ご希望の施工箇所、ご予算、現地調査の希望日程などをご自由にご記入ください。"></textarea>
+          </div>
         </div>
 
-        <button type="submit" class="form-control" style="background: var(--primary-red); color: #fff; font-weight: bold; border: none; cursor: pointer; padding: 16px; font-size: 1.05rem;">
-          送信する
-        </button>
+        <!-- 送信ボタン（右端まで入力枠と同じ幅で伸びる構造） -->
+        <div class="submit-row">
+          <div class="submit-spacer"></div>
+          <div class="submit-btn-wrap">
+            <button type="submit" class="submit-btn">
+              送信する
+            </button>
+          </div>
+        </div>
       </form>
 
     </div>
@@ -189,13 +277,12 @@
 
   <script src="js/main.js"></script>
   <script>
-    // 見積もりページからの自動転記受け取りスクリプト
     document.addEventListener('DOMContentLoaded', () => {
       const estimateData = sessionStorage.getItem('estimate_data');
       const remarkField = document.getElementById('contact-remarks');
       if (estimateData && remarkField) {
         remarkField.value = estimateData;
-        sessionStorage.removeItem('estimate_data'); // 転記後にクリア
+        sessionStorage.removeItem('estimate_data');
       }
     });
   </script>
