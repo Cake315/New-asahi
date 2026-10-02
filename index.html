@@ -616,6 +616,22 @@
         font-size: 1.05rem !important;
       }
     }
+
+/* スマホ表示時のセクション間・カード下の余白最適化 */
+    @media (max-width: 900px) {
+      .sec-services {
+        padding: 50px 0 30px !important; /* 上下の巨大な余白を縮小（下が100px→30pxに） */
+      }
+
+      .services-grid {
+        gap: 24px !important; /* フローリングと壁紙カード同士の隙間も適正化 */
+      }
+
+      .sec-sub-banner {
+        padding-top: 10px !important;
+        padding-bottom: 50px !important;
+      }
+    }
   </style>
 </head>
 <body>
