@@ -425,3 +425,116 @@ footer {
   flex-direction: column;
   flex: 1;
 }
+
+/* --- 矢印の高さを一番下に揃える設定 --- */
+.feature-banner-box {
+  height: 100%; /* カードの高さを統一 */
+}
+
+/* カード内の最後の要素（矢印やボタンなど）を一番下に固定 */
+.banner-content > *:last-child,
+.banner-content .arrow-btn,
+.banner-content .banner-arrow {
+  margin-top: auto !important;}
+
+
+
+
+/* --- カード全体の高さを揃えて矢印を一番下に固定する補正 --- */
+
+/* 1. カード全体の表示をFlex縦並びにする */
+.material-card, 
+.labor-block, 
+.feature-banner-box {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* 2. カード内のリンクやボタン、矢印要素（最後の要素）を一番下に押し下げる */
+.material-card > *:last-child,
+.labor-block > *:last-child,
+.feature-banner-box > *:last-child,
+.banner-content > *:last-child {
+  margin-top: auto !important;
+}
+
+/* 3. スマホ表示時（900px以下）に文字と矢印を縦並びにする */
+@media (max-width: 900px) {
+  .material-card a,
+  .mat-header,
+  .banner-content a {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+
+/* --- スマホ版：ヘッダーナビの文字と矢印（▾）の表示調整 --- */
+@media (max-width: 900px) {
+  /* メニュー項目を横並びのFlexボックスにし、文字と矢印の配置を整える */
+  .nav-link {
+    display: flex !important;
+    justify-content: space-between !important; /* テキストを左、矢印を右端に配置 */
+    align-items: center !important;             /* 高さ（上下中央）を揃える */
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-link {
+    display: inline-flex !important;
+    align-items: center !important; /* 上下中央揃え */
+    gap: 4px;                       /* 文字と矢印の間の余白 */
+    white-space: nowrap;            /* 文字と矢印の途中で改行させない */
+  }
+}
+
+/* --- スマホ版：トップページ等のカード高さを固定し、矢印の位置を無理やり一番下に固定 --- */
+@media (max-width: 900px) {
+  /* 1. カード全体の高さを統一・固定 */
+  .feature-banner-box,
+  .material-card,
+  .labor-block {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important; /* 親要素の高さに合わせる */
+    min-height: 240px;       /* 最低限のカード高さを一律固定（必要に応じて調整可） */
+  }
+
+  /* 2. カード内のコンテンツエリアをフレックス化 */
+  .banner-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+  }
+
+  /* 3. 「壁紙施工案内 →」などの矢印付きリンク・ボタンを一番下に無理やり押し下げて固定 */
+  .banner-content a,
+  .banner-content .arrow,
+  .banner-content > *:last-child,
+  .feature-banner-box a:last-child {
+    margin-top: auto !important;  /* 上の余白を全自動計算して一番下へ固定 */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important; /* テキスト左、矢印右端に固定 */
+    width: 100% !important;
+  }
+}
+
+/* --- スマホ版：sub-btn内の文字と矢印の改行を防止して横並びに固定 --- */
+.sub-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* ボタン同士の上下間隔 */
+}
+
+.sub-btn {
+  display: flex !important;
+  justify-content: space-between !important; /* テキスト左、矢印右端に綺麗に配置 */
+  align-items: center !important;             /* 縦位置を中央に固定 */
+  white-space: nowrap !important;             /* ★途中で改行されるのを絶対に防ぐ */
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
